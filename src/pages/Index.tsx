@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FilterBar from "@/components/FilterBar";
 import RecyclingPointCard from "@/components/RecyclingPointCard";
+import Map from "@/components/Map";
 import { recyclingPoints } from "@/data/recyclingPoints";
 import { MaterialType } from "@/types/recycling";
 
@@ -44,6 +45,8 @@ const Index = () => {
             selectedMaterials={selectedMaterials}
             onToggleMaterial={handleToggleMaterial}
           />
+
+          <Map points={filteredPoints} />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredPoints.map((point) => (

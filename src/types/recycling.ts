@@ -8,4 +8,6 @@ export interface RecyclingPoint {
   materials: MaterialType[];
   hours: string;
   phone?: string;
+  lat: number;
+  lng: number;
 }

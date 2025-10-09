@@ -9,6 +9,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["plastic", "glass", "paper", "metal"],
     hours: "Seg-Sex: 8h-18h | Sáb: 8h-12h",
     phone: "(11) 4433-0000",
+    lat: -23.6636,
+    lng: -46.5339,
   },
   {
     id: "2",
@@ -17,6 +19,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     neighborhood: "Jardim",
     materials: ["plastic", "glass", "paper", "metal", "organic"],
     hours: "Diariamente: 6h-22h",
+    lat: -23.6542,
+    lng: -46.5289,
   },
   {
     id: "3",
@@ -26,6 +30,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["electronics", "metal"],
     hours: "Seg-Sex: 9h-17h",
     phone: "(11) 4433-0001",
+    lat: -23.6789,
+    lng: -46.5456,
   },
   {
     id: "4",
@@ -35,6 +41,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["plastic", "glass", "paper", "metal"],
     hours: "Seg-Sex: 7h-17h",
     phone: "(11) 4433-0002",
+    lat: -23.6901,
+    lng: -46.5123,
   },
   {
     id: "5",
@@ -43,6 +51,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     neighborhood: "Campestre",
     materials: ["plastic", "glass", "paper", "metal"],
     hours: "Seg-Sex: 8h-18h | Sáb: 8h-12h",
+    lat: -23.6421,
+    lng: -46.5567,
   },
   {
     id: "6",
@@ -52,6 +62,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["electronics"],
     hours: "Diariamente: 10h-22h",
     phone: "(11) 4433-0003",
+    lat: -23.6712,
+    lng: -46.5401,
   },
   {
     id: "7",
@@ -60,6 +72,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     neighborhood: "Vila Assunção",
     materials: ["plastic", "glass", "paper", "metal"],
     hours: "Seg-Sex: 8h-18h",
+    lat: -23.6598,
+    lng: -46.5278,
   },
   {
     id: "8",
@@ -68,6 +82,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     neighborhood: "Centro",
     materials: ["plastic", "glass", "paper", "metal", "organic"],
     hours: "Diariamente: 6h-20h",
+    lat: -23.6654,
+    lng: -46.5312,
   },
   {
     id: "9",
@@ -77,6 +93,8 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["plastic", "glass", "paper", "metal"],
     hours: "Seg-Sex: 7h-16h",
     phone: "(11) 4433-0004",
+    lat: -23.6489,
+    lng: -46.5423,
   },
   {
     id: "10",
@@ -86,5 +104,7 @@ export const recyclingPoints: RecyclingPoint[] = [
     materials: ["plastic", "glass", "paper", "metal", "electronics"],
     hours: "Seg-Sáb: 8h-17h",
     phone: "(11) 4433-0005",
+    lat: -23.6834,
+    lng: -46.5234,
   },
 ];
