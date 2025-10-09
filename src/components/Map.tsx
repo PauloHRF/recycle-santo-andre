@@ -7,21 +7,12 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Fix for default marker icons in react-leaflet
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
-
-const DefaultIcon = L.icon({
-  iconUrl: icon,
-  iconRetinaUrl: iconRetina,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
-
-L.Marker.prototype.options.icon = DefaultIcon;
 
 interface MapProps {
   points: RecyclingPoint[];
@@ -47,24 +38,30 @@ const Map = ({ points }: MapProps) => {
   // Santo André center coordinates
   const center: [number, number] = [-23.6636, -46.5339];
 
+  if (points.length === 0) {
+    return (
+      <div className="w-full h-[500px] rounded-lg overflow-hidden border border-border shadow-lg flex items-center justify-center bg-muted">
+        <p className="text-muted-foreground">Nenhum ponto para exibir no mapa</p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden border border-border shadow-lg">
       <MapContainer
         center={center}
         zoom={13}
-        className="h-full w-full"
         scrollWheelZoom={true}
+        style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        
         <MapBounds points={points} />
-        
         {points.map((point) => (
           <Marker key={point.id} position={[point.lat, point.lng]}>
-            <Popup className="custom-popup">
+            <Popup>
               <div className="p-2 min-w-[250px]">
                 <h3 className="font-semibold text-base mb-2">{point.name}</h3>
                 <Badge variant="secondary" className="mb-3">
