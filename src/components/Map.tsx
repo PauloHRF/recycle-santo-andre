@@ -30,12 +30,12 @@ const Map = ({ points }: MapProps) => {
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) return;
 
-    // Centro aproximado de Santo André
+    // Centro aproximado de Santo André (focado na região dos ecopontos)
     const center: L.LatLngExpression = [-23.6636, -46.5339];
 
     mapRef.current = L.map(mapContainerRef.current, {
       center,
-      zoom: 13,
+      zoom: 12.5,
       scrollWheelZoom: true,
     });
 
@@ -107,7 +107,7 @@ const Map = ({ points }: MapProps) => {
   }, [points]);
 
   return (
-    <div className="w-full h-[500px] rounded-lg overflow-hidden border border-border shadow-lg">
+    <div className="w-full max-w-[80%] mx-auto h-[500px] rounded-lg overflow-hidden border border-border shadow-lg">
       <div ref={mapContainerRef} className="h-full w-full" />
     </div>
   );

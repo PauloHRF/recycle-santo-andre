@@ -1,4 +1,4 @@
-export type MaterialType = "plastic" | "glass" | "paper" | "metal" | "electronics" | "organic";
+export type MaterialType = "plastic" | "glass" | "paper" | "metal" | "electronics";
 
 export interface RecyclingPoint {
   id: string;

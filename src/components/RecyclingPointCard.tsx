@@ -1,7 +1,7 @@
 import { RecyclingPoint, MaterialType } from "@/types/recycling";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Phone, Trash2, Wine, FileText, Cpu, Wrench, Leaf } from "lucide-react";
+import { MapPin, Clock, Phone, Trash2, Wine, FileText, Cpu, Wrench } from "lucide-react";
 
 interface RecyclingPointCardProps {
   point: RecyclingPoint;
@@ -13,7 +13,6 @@ const materialIcons: Record<MaterialType, any> = {
   paper: FileText,
   metal: Wrench,
   electronics: Cpu,
-  organic: Leaf,
 };
 
 const materialLabels: Record<MaterialType, string> = {
@@ -22,7 +21,6 @@ const materialLabels: Record<MaterialType, string> = {
   paper: "Papel",
   metal: "Metal",
   electronics: "Eletrônicos",
-  organic: "Orgânicos",
 };
 
 const RecyclingPointCard = ({ point }: RecyclingPointCardProps) => {

@@ -18,13 +18,8 @@ const Hero = () => {
           </p>
           <div className="flex gap-4 text-primary-foreground/90 animate-fade-in [animation-delay:400ms]">
             <div className="flex flex-col">
-              <span className="text-3xl font-bold">50+</span>
+              <span className="text-3xl font-bold">30</span>
               <span className="text-sm">Pontos de Coleta</span>
-            </div>
-            <div className="w-px bg-primary-foreground/30" />
-            <div className="flex flex-col">
-              <span className="text-3xl font-bold">5</span>
-              <span className="text-sm">Tipos de Materiais</span>
             </div>
           </div>
         </div>

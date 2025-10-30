@@ -1,6 +1,6 @@
 import { MaterialType } from "@/types/recycling";
 import { Button } from "@/components/ui/button";
-import { Trash2, Wine, FileText, Cpu, Wrench, Leaf } from "lucide-react";
+import { Trash2, Wine, FileText, Cpu, Wrench } from "lucide-react";
 
 interface FilterBarProps {
   selectedMaterials: MaterialType[];
@@ -13,7 +13,6 @@ const materialIcons: Record<MaterialType, any> = {
   paper: FileText,
   metal: Wrench,
   electronics: Cpu,
-  organic: Leaf,
 };
 
 const materialLabels: Record<MaterialType, string> = {
@@ -22,11 +21,10 @@ const materialLabels: Record<MaterialType, string> = {
   paper: "Papel",
   metal: "Metal",
   electronics: "Eletrônicos",
-  organic: "Orgânicos",
 };
 
 const FilterBar = ({ selectedMaterials, onToggleMaterial }: FilterBarProps) => {
-  const materials: MaterialType[] = ["plastic", "glass", "paper", "metal", "electronics", "organic"];
+  const materials: MaterialType[] = ["plastic", "glass", "paper", "metal", "electronics"];
 
   return (
     <div className="bg-card border border-border rounded-xl p-4 shadow-soft">
