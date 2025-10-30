@@ -25,6 +25,7 @@ const Map = ({ points }: MapProps) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const isFirstLoad = useRef(true);
 
   // Inicializa o mapa uma única vez
   useEffect(() => {
@@ -101,9 +102,13 @@ const Map = ({ points }: MapProps) => {
     layer.addTo(mapRef.current);
     markersLayerRef.current = layer;
 
-    // Fit bounds em todos os pontos
-    const bounds = L.latLngBounds(points.map((p) => [p.lat, p.lng] as [number, number]));
-    mapRef.current.fitBounds(bounds, { padding: [50, 50] });
+    // Fit bounds em todos os pontos (exceto no primeiro carregamento)
+    if (!isFirstLoad.current) {
+      const bounds = L.latLngBounds(points.map((p) => [p.lat, p.lng] as [number, number]));
+      mapRef.current.fitBounds(bounds, { padding: [50, 50] });
+    } else {
+      isFirstLoad.current = false;
+    }
   }, [points]);
 
   return (
