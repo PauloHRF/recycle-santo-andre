@@ -1,15 +1,21 @@
-import { Recycle } from "lucide-react";
+import { Recycle, Menu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useState } from "react";
 
 const Header = () => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { path: "/", label: "Pontos" },
     { path: "/sobre", label: "Sobre" },
     { path: "/como-reciclar", label: "Como Reciclar" },
-    { path: "/materiais", label: "Materiais" }
+    { path: "/materiais", label: "Materiais" },
+    { path: "/estatisticas", label: "Estatísticas" },
+    { path: "/faq", label: "FAQ" }
   ];
 
   return (
@@ -41,6 +47,33 @@ const Header = () => {
             </Link>
           ))}
         </nav>
+
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-64">
+            <nav className="flex flex-col gap-4 mt-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "text-base font-medium transition-colors hover:text-primary px-2 py-2 rounded-md",
+                    location.pathname === item.path
+                      ? "text-primary bg-secondary"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );

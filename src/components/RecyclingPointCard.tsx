@@ -1,7 +1,8 @@
 import { RecyclingPoint, MaterialType } from "@/types/recycling";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Phone, Trash2, Wine, FileText, Cpu, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MapPin, Clock, Phone, Trash2, Wine, FileText, Cpu, Wrench, Navigation } from "lucide-react";
 
 interface RecyclingPointCardProps {
   point: RecyclingPoint;
@@ -24,6 +25,10 @@ const materialLabels: Record<MaterialType, string> = {
 };
 
 const RecyclingPointCard = ({ point }: RecyclingPointCardProps) => {
+  const getGoogleMapsUrl = (lat: number, lng: number, name: string) => {
+    return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&destination_place_id=${encodeURIComponent(name)}`;
+  };
+
   return (
     <Card className="hover:shadow-hover transition-all duration-300 bg-gradient-card border-border">
       <CardHeader>
@@ -67,6 +72,22 @@ const RecyclingPointCard = ({ point }: RecyclingPointCardProps) => {
           </div>
         </div>
       </CardContent>
+      <CardFooter className="pt-0">
+        <Button 
+          asChild 
+          variant="outline" 
+          className="w-full gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+        >
+          <a 
+            href={getGoogleMapsUrl(point.lat, point.lng, point.name)} 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Navigation className="h-4 w-4" />
+            Ver rotas no Google Maps
+          </a>
+        </Button>
+      </CardFooter>
     </Card>
   );
 };

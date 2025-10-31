@@ -1,14 +1,10 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+Sitemap: https://ecosantoandre.com.br/sitemap.xml
+
+# Páginas prioritárias
+Allow: /sobre
+Allow: /como-reciclar
+Allow: /materiais
+Allow: /estatisticas
+Allow: /faq
