@@ -1,4 +1,4 @@
-import { Recycle, Leaf, TrendingUp, BarChart3 } from "lucide-react";
+import { Recycle, Leaf, TrendingUp, BarChart3, Package, FileText, Wine, Wrench, Cpu } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
 
@@ -6,33 +6,38 @@ const AboutRecycling = () => {
   const materials = [
     {
       name: "Plástico",
-      icon: "🔵",
+      icon: Package,
       description: "Garrafas PET, embalagens, sacolas",
-      color: "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-800"
+      color: "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-800",
+      iconColor: "text-blue-600 dark:text-blue-400"
     },
     {
       name: "Papel",
-      icon: "📄",
+      icon: FileText,
       description: "Jornais, revistas, caixas de papelão",
-      color: "bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700"
+      color: "bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700",
+      iconColor: "text-blue-500 dark:text-blue-300"
     },
     {
       name: "Vidro",
-      icon: "🟢",
+      icon: Wine,
       description: "Garrafas, potes, frascos",
-      color: "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-800"
+      color: "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-800",
+      iconColor: "text-green-600 dark:text-green-400"
     },
     {
       name: "Metal",
-      icon: "🟡",
+      icon: Wrench,
       description: "Latas de alumínio, enlatados",
-      color: "bg-yellow-100 dark:bg-yellow-950 border-yellow-300 dark:border-yellow-800"
+      color: "bg-yellow-100 dark:bg-yellow-950 border-yellow-300 dark:border-yellow-800",
+      iconColor: "text-yellow-600 dark:text-yellow-400"
     },
     {
       name: "Eletrônicos",
-      icon: "⚡",
+      icon: Cpu,
       description: "Celulares, computadores, pilhas",
-      color: "bg-purple-100 dark:bg-purple-950 border-purple-300 dark:border-purple-800"
+      color: "bg-purple-100 dark:bg-purple-950 border-purple-300 dark:border-purple-800",
+      iconColor: "text-purple-600 dark:text-purple-400"
     }
   ];
 
@@ -120,19 +125,24 @@ const AboutRecycling = () => {
             Tipos de Materiais Recicláveis
           </h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {materials.map((material) => (
-              <Card key={material.name} className={`border ${material.color}`}>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="text-3xl">{material.icon}</span>
-                    {material.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{material.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {materials.map((material) => {
+              const IconComponent = material.icon;
+              return (
+                <Card key={material.name} className={`border ${material.color} hover-scale`}>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <div className={`rounded-lg bg-background p-2 ${material.iconColor}`}>
+                        <IconComponent className="h-8 w-8" />
+                      </div>
+                      {material.name}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{material.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 

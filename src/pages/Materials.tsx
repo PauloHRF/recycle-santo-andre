@@ -1,4 +1,4 @@
-import { Leaf, Clock, RefreshCw, CheckCircle, XCircle } from "lucide-react";
+import { Leaf, Clock, RefreshCw, CheckCircle, XCircle, Package, FileText, Wine, Wrench, Cpu } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Header from "@/components/Header";
@@ -8,8 +8,9 @@ const Materials = () => {
     {
       id: "plastic",
       name: "Plástico",
-      icon: "🔵",
+      icon: Package,
       color: "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-800",
+      iconColor: "text-blue-600 dark:text-blue-400",
       identification: [
         "Garrafas PET (refrigerantes, água)",
         "Embalagens de produtos de limpeza",
@@ -37,8 +38,9 @@ const Materials = () => {
     {
       id: "paper",
       name: "Papel",
-      icon: "📄",
+      icon: FileText,
       color: "bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700",
+      iconColor: "text-blue-500 dark:text-blue-300",
       identification: [
         "Jornais e revistas",
         "Caixas de papelão",
@@ -67,8 +69,9 @@ const Materials = () => {
     {
       id: "glass",
       name: "Vidro",
-      icon: "🟢",
+      icon: Wine,
       color: "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-800",
+      iconColor: "text-green-600 dark:text-green-400",
       identification: [
         "Garrafas de bebidas",
         "Potes de alimentos",
@@ -97,8 +100,9 @@ const Materials = () => {
     {
       id: "metal",
       name: "Metal",
-      icon: "🟡",
+      icon: Wrench,
       color: "bg-yellow-100 dark:bg-yellow-950 border-yellow-300 dark:border-yellow-800",
+      iconColor: "text-yellow-600 dark:text-yellow-400",
       identification: [
         "Latas de alumínio",
         "Latas de conserva",
@@ -127,8 +131,9 @@ const Materials = () => {
     {
       id: "electronics",
       name: "Eletrônicos",
-      icon: "⚡",
+      icon: Cpu,
       color: "bg-purple-100 dark:bg-purple-950 border-purple-300 dark:border-purple-800",
+      iconColor: "text-purple-600 dark:text-purple-400",
       identification: [
         "Celulares e tablets",
         "Computadores e notebooks",
@@ -176,33 +181,42 @@ const Materials = () => {
         {/* Materials Grid */}
         <section className="mb-8">
           <div className="grid gap-4 md:grid-cols-5">
-            {materials.map((material) => (
-              <a
-                key={material.id}
-                href={`#${material.id}`}
-                className="group"
-              >
-                <Card className={`border transition-all hover:scale-105 ${material.color}`}>
-                  <CardContent className="flex flex-col items-center justify-center p-6">
-                    <span className="mb-2 text-4xl">{material.icon}</span>
-                    <p className="text-center font-semibold">{material.name}</p>
-                  </CardContent>
-                </Card>
-              </a>
-            ))}
+            {materials.map((material) => {
+              const IconComponent = material.icon;
+              return (
+                <a
+                  key={material.id}
+                  href={`#${material.id}`}
+                  className="group"
+                >
+                  <Card className={`border transition-all hover:scale-105 ${material.color}`}>
+                    <CardContent className="flex flex-col items-center justify-center gap-3 p-6">
+                      <div className={`rounded-lg bg-background p-3 ${material.iconColor}`}>
+                        <IconComponent className="h-10 w-10" />
+                      </div>
+                      <p className="text-center font-semibold">{material.name}</p>
+                    </CardContent>
+                  </Card>
+                </a>
+              );
+            })}
           </div>
         </section>
 
         {/* Materials Details */}
         <section className="space-y-8">
-          {materials.map((material) => (
-            <Card key={material.id} id={material.id} className="border-border bg-card scroll-mt-20">
-              <CardHeader className={`border-b ${material.color}`}>
-                <CardTitle className="flex items-center gap-3 text-2xl">
-                  <span className="text-4xl">{material.icon}</span>
-                  {material.name}
-                </CardTitle>
-              </CardHeader>
+          {materials.map((material) => {
+            const IconComponent = material.icon;
+            return (
+              <Card key={material.id} id={material.id} className="border-border bg-card scroll-mt-20">
+                <CardHeader className={`border-b ${material.color}`}>
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <div className={`rounded-lg bg-background p-3 ${material.iconColor}`}>
+                      <IconComponent className="h-10 w-10" />
+                    </div>
+                    {material.name}
+                  </CardTitle>
+                </CardHeader>
               <CardContent className="pt-6">
                 <Accordion type="single" collapsible className="w-full">
                   {/* Identificação */}
@@ -298,7 +312,8 @@ const Materials = () => {
                 </Accordion>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </section>
 
         {/* CTA */}
