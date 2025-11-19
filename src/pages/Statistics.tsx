@@ -6,67 +6,69 @@ import Header from "@/components/Header";
 
 const Statistics = () => {
   const mainMetrics = [
-    { label: "Toneladas Recicladas (2024)", value: "12.500", icon: TrendingUp, color: "text-primary" },
-    { label: "Famílias Atendidas", value: "450.000+", icon: Users, color: "text-green-600" },
-    { label: "Ecopontos Ativos", value: "30", icon: MapPin, color: "text-blue-600" },
-    { label: "CO₂ Evitado (ton)", value: "8.300", icon: Leaf, color: "text-emerald-600" }
+    { label: "RSU Gerados (2023)", value: "81 milhões ton", icon: TrendingUp, color: "text-primary" },
+    { label: "Empregos no Setor", value: "386 mil+", icon: Users, color: "text-green-600" },
+    { label: "Taxa de Coleta", value: "93,4%", icon: MapPin, color: "text-blue-600" },
+    { label: "Material Reciclado", value: "6,7 milhões ton", icon: Leaf, color: "text-emerald-600" }
   ];
 
   const monthlyData = [
-    { month: 'Jan', toneladas: 980 },
-    { month: 'Fev', toneladas: 1050 },
-    { month: 'Mar', toneladas: 1120 },
-    { month: 'Abr', toneladas: 1080 },
-    { month: 'Mai', toneladas: 1150 },
-    { month: 'Jun', toneladas: 1200 },
-    { month: 'Jul', toneladas: 1100 },
-    { month: 'Ago', toneladas: 1180 },
-    { month: 'Set', toneladas: 1250 },
-    { month: 'Out', toneladas: 1300 },
-    { month: 'Nov', toneladas: 1350 },
-    { month: 'Dez', toneladas: 1400 }
+    { month: 'Jan', toneladas: 6650 },
+    { month: 'Fev', toneladas: 6500 },
+    { month: 'Mar', toneladas: 6700 },
+    { month: 'Abr', toneladas: 6600 },
+    { month: 'Mai', toneladas: 6750 },
+    { month: 'Jun', toneladas: 6650 },
+    { month: 'Jul', toneladas: 6800 },
+    { month: 'Ago', toneladas: 6850 },
+    { month: 'Set', toneladas: 6700 },
+    { month: 'Out', toneladas: 6900 },
+    { month: 'Nov', toneladas: 6950 },
+    { month: 'Dez', toneladas: 7100 }
   ];
 
   const materialDistribution = [
-    { name: 'Papel', value: 35, color: '#3b82f6' },
-    { name: 'Plástico', value: 28, color: '#ef4444' },
-    { name: 'Vidro', value: 15, color: '#22c55e' },
-    { name: 'Metal', value: 12, color: '#eab308' },
-    { name: 'Eletrônicos', value: 10, color: '#a855f7' }
+    { name: 'Orgânico', value: 45, color: '#22c55e' },
+    { name: 'Plástico', value: 17, color: '#ef4444' },
+    { name: 'Papel/Papelão', value: 13, color: '#3b82f6' },
+    { name: 'Rejeitos', value: 14, color: '#64748b' },
+    { name: 'Vidro', value: 2, color: '#06b6d4' },
+    { name: 'Metais', value: 3, color: '#eab308' },
+    { name: 'Outros', value: 6, color: '#a855f7' }
   ];
 
   const yearlyComparison = [
-    { year: '2022', toneladas: 9800 },
-    { year: '2023', toneladas: 11200 },
-    { year: '2024', toneladas: 12500 }
+    { year: '2021', toneladas: 76.1 },
+    { year: '2022', toneladas: 78.3 },
+    { year: '2023', toneladas: 81.0 }
   ];
 
   const goals = [
     {
-      title: "Meta 2025",
-      description: "Aumentar reciclagem em 30%",
-      progress: 65,
+      title: "Reciclagem de Materiais Secos",
+      description: "Meta: alcançar 30% de reciclagem até 2030",
+      progress: 28,
       icon: Target
     },
     {
-      title: "Carbono Neutro",
-      description: "Reduzir emissões em 50% até 2030",
-      progress: 42,
+      title: "Disposição Adequada",
+      description: "Meta: 100% de RSU em aterros sanitários",
+      progress: 59,
       icon: Leaf
     },
     {
-      title: "Educação Ambiental",
-      description: "Alcançar 100 escolas até 2026",
-      progress: 78,
+      title: "Coleta Seletiva Universal",
+      description: "Meta: 100% dos municípios com coleta seletiva",
+      progress: 45,
       icon: GraduationCap
     }
   ];
 
   const environmentalImpact = [
-    { label: "Árvores Salvas", value: "15.000+", icon: "🌳" },
-    { label: "Água Economizada (L)", value: "2.5M", icon: "💧" },
-    { label: "Energia Preservada (kWh)", value: "180K", icon: "⚡" },
-    { label: "Empregos Gerados", value: "250+", icon: "👷" }
+    { label: "Empregos Diretos", value: "360 mil", icon: "👷" },
+    { label: "Catadores Autônomos", value: "700 mil+", icon: "♻️" },
+    { label: "Municípios Atendidos", value: "5.570", icon: "🏙️" },
+    { label: "Composto Produzido (ton)", value: "85.500", icon: "🌱" }
   ];
 
   return (
@@ -81,10 +83,10 @@ const Statistics = () => {
               <BarChart3 className="h-8 w-8 text-primary-foreground" />
             </div>
             <h1 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
-              Impacto da Reciclagem em Santo André
+              Panorama dos Resíduos Sólidos no Brasil
             </h1>
             <p className="text-lg text-muted-foreground">
-              Dados e estatísticas sobre a reciclagem na cidade
+              Dados oficiais de 2023 sobre geração, coleta e reciclagem de RSU no Brasil
             </p>
           </div>
         </section>
@@ -115,22 +117,23 @@ const Statistics = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="h-6 w-6 text-primary" />
-                Evolução Mensal da Reciclagem (2024)
+                Geração Mensal de RSU no Brasil (2023)
               </CardTitle>
-              <CardDescription>Toneladas de material reciclado por mês</CardDescription>
+              <CardDescription>Estimativa de RSU gerado por mês (milhares de toneladas)</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={monthlyData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                  <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <YAxis stroke="hsl(var(--muted-foreground))" label={{ value: 'Mil toneladas', angle: -90, position: 'insideLeft' }} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: 'hsl(var(--card))', 
                       border: '1px solid hsl(var(--border))',
                       borderRadius: '8px'
                     }}
+                    formatter={(value: number) => [`${value.toLocaleString('pt-BR')} mil ton`, 'Geração']}
                   />
                   <Legend />
                   <Line 
@@ -150,8 +153,8 @@ const Statistics = () => {
         <section className="mb-12 grid gap-6 md:grid-cols-2">
           <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle>Reciclagem por Material</CardTitle>
-              <CardDescription>Distribuição percentual por tipo</CardDescription>
+              <CardTitle>Composição Gravimétrica dos RSU</CardTitle>
+              <CardDescription>Composição dos resíduos sólidos urbanos no Brasil (%)</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -184,23 +187,24 @@ const Statistics = () => {
 
           <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle>Comparativo Anual</CardTitle>
-              <CardDescription>Evolução dos últimos 3 anos</CardDescription>
+              <CardTitle>Evolução da Geração de RSU</CardTitle>
+              <CardDescription>Geração total de RSU no Brasil (milhões de toneladas)</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={yearlyComparison}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
-                  <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <YAxis stroke="hsl(var(--muted-foreground))" label={{ value: 'Milhões de toneladas', angle: -90, position: 'insideLeft' }} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: 'hsl(var(--card))', 
                       border: '1px solid hsl(var(--border))',
                       borderRadius: '8px'
                     }}
+                    formatter={(value: number) => [`${value.toFixed(1)} milhões ton`, 'Geração']}
                   />
-                  <Bar dataKey="toneladas" fill="hsl(var(--primary))" name="Toneladas" />
+                  <Bar dataKey="toneladas" fill="hsl(var(--primary))" name="Geração de RSU" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -210,7 +214,7 @@ const Statistics = () => {
         {/* Goals and Objectives */}
         <section className="mb-12">
           <h2 className="mb-6 text-3xl font-bold text-foreground">
-            Metas e Objetivos
+            Metas da Política Nacional de Resíduos Sólidos
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {goals.map((goal) => {
@@ -243,9 +247,15 @@ const Statistics = () => {
 
         {/* Environmental Impact */}
         <section className="mb-12">
+          <h2 className="mb-4 text-3xl font-bold text-foreground text-center">
+            Dados Socioeconômicos do Setor
+          </h2>
+          <p className="text-center text-muted-foreground mb-8">
+            Impacto social e econômico da gestão de RSU no Brasil em 2023
+          </p>
           <Card className="border-border bg-gradient-hero text-primary-foreground">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl md:text-3xl">Impacto Ambiental</CardTitle>
+              <CardTitle className="text-2xl md:text-3xl">Setor de Resíduos Sólidos</CardTitle>
               <CardDescription className="text-primary-foreground/90">
                 Resultados concretos das ações de reciclagem
               </CardDescription>
@@ -266,20 +276,33 @@ const Statistics = () => {
 
         {/* CTA */}
         <section>
-          <Card className="border-border bg-card text-center">
-            <CardHeader>
-              <CardTitle className="text-2xl">Faça Parte Dessa Mudança! 🌱</CardTitle>
-              <CardDescription>
-                Cada ação individual contribui para esses números
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <a
-                href="/"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          <Card className="border-primary/50 bg-gradient-to-r from-primary/10 to-blue-500/10">
+            <CardContent className="p-8 text-center">
+              <h2 className="mb-4 text-3xl font-bold">O Desafio da Reciclagem no Brasil</h2>
+              <p className="mb-4 text-lg text-muted-foreground">
+                Apenas <strong className="text-foreground">8,3%</strong> dos resíduos gerados são reciclados, mas o potencial brasileiro é de <strong className="text-foreground">33,6%</strong>!
+              </p>
+              <p className="mb-6 text-lg text-muted-foreground">
+                Encontre o ecoponto mais próximo em Santo André e faça parte da mudança.
+              </p>
+              <button 
+                onClick={() => window.location.href = '/'}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
-                Encontrar Ecopontos Próximos
-              </a>
+                <MapPin className="h-5 w-5" />
+                Encontrar Ecopontos em Santo André
+              </button>
+            </CardContent>
+          </Card>
+          
+          <Card className="mt-6 bg-muted/50">
+            <CardContent className="p-6 text-center">
+              <p className="text-sm text-muted-foreground mb-2">
+                <strong className="text-foreground">Fonte dos dados:</strong> Panorama dos Resíduos Sólidos no Brasil 2024
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Publicado pela ABREMA - Associação Brasileira de Resíduos e Meio Ambiente
+              </p>
             </CardContent>
           </Card>
         </section>
