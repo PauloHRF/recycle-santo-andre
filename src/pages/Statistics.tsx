@@ -256,9 +256,6 @@ const Statistics = () => {
           <Card className="border-border bg-gradient-hero text-primary-foreground">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl md:text-3xl">Setor de Resíduos Sólidos</CardTitle>
-              <CardDescription className="text-primary-foreground/90">
-                Resultados concretos das ações de reciclagem
-              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-6 md:grid-cols-4">
