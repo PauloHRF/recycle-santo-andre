@@ -1,4 +1,4 @@
-import { BarChart3, TrendingUp, Users, MapPin, Leaf, Target, GraduationCap } from "lucide-react";
+import { BarChart3, TrendingUp, Users, MapPin, Leaf, Target, GraduationCap, Package } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
@@ -45,24 +45,55 @@ const Statistics = () => {
 
   const goals = [
     {
-      title: "Reciclagem de Materiais Secos",
-      description: "Meta: alcançar 30% de reciclagem até 2030",
-      progress: 28,
+      title: "Recuperação de Massa Total (Meta 4)",
+      description: "Meta 2040: Recuperar 48,1% da massa total de RSU",
+      progress: 48.1,
+      target: "48,1%",
       icon: Target
     },
     {
-      title: "Disposição Adequada",
-      description: "Meta: 100% de RSU em aterros sanitários",
-      progress: 59,
+      title: "Inclusão Social de Catadores (Meta 5)",
+      description: "Meta 2040: 95% dos municípios com contratos formalizados",
+      progress: 95,
+      target: "95%",
+      icon: Users
+    },
+    {
+      title: "Recuperação de Materiais Recicláveis (Meta 6)",
+      description: "Meta 2040: Recuperar 20% de recicláveis secos",
+      progress: 20,
+      target: "20%",
       icon: Leaf
     },
     {
-      title: "Coleta Seletiva Universal",
-      description: "Meta: 100% dos municípios com coleta seletiva",
-      progress: 45,
+      title: "Acesso à Coleta Seletiva (Meta 6.1)",
+      description: "Meta 2040: 72,6% da população com acesso",
+      progress: 72.6,
+      target: "72,6%",
+      icon: MapPin
+    },
+    {
+      title: "Logística Reversa de Embalagens (Meta 6.2)",
+      description: "Meta 2040: Recuperar 50% das embalagens",
+      progress: 50,
+      target: "50%",
+      icon: Package
+    },
+    {
+      title: "Reciclagem de Fração Orgânica (Meta 7)",
+      description: "Meta 2040: Recuperar 13,5% de orgânicos",
+      progress: 13.5,
+      target: "13,5%",
       icon: GraduationCap
     }
   ];
+
+  const energyGoal = {
+    title: "Potência Instalada de Biogás (Indicador 8.1)",
+    description: "Meta 2040: 257 MW a partir de biogás de aterro sanitário",
+    value: "257 MW",
+    icon: TrendingUp
+  };
 
   const environmentalImpact = [
     { label: "Empregos Diretos", value: "360 mil", icon: "👷" },
@@ -214,9 +245,9 @@ const Statistics = () => {
         {/* Goals and Objectives */}
         <section className="mb-12">
           <h2 className="mb-6 text-3xl font-bold text-foreground">
-            Metas da Política Nacional de Resíduos Sólidos
+            Metas do Plano Nacional de Resíduos Sólidos (Planares) - Horizonte 2040
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {goals.map((goal) => {
               const Icon = goal.icon;
               return (
@@ -227,14 +258,14 @@ const Statistics = () => {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                     </div>
-                    <CardTitle className="text-xl">{goal.title}</CardTitle>
+                    <CardTitle className="text-lg">{goal.title}</CardTitle>
                     <CardDescription>{goal.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Progresso</span>
-                        <span className="font-bold text-foreground">{goal.progress}%</span>
+                        <span className="text-muted-foreground">Meta</span>
+                        <span className="font-bold text-foreground text-xl">{goal.target}</span>
                       </div>
                       <Progress value={goal.progress} className="h-2" />
                     </div>
@@ -242,6 +273,26 @@ const Statistics = () => {
                 </Card>
               );
             })}
+          </div>
+          
+          {/* Energy Goal - Special Card */}
+          <div className="mt-6">
+            <Card className="border-primary/50 bg-gradient-to-r from-primary/10 to-green-500/10">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-primary/20 p-3">
+                    <TrendingUp className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-1">{energyGoal.title}</h3>
+                    <p className="text-muted-foreground">{energyGoal.description}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-3xl font-bold text-primary">{energyGoal.value}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
