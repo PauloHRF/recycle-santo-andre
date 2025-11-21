@@ -1,7 +1,6 @@
 import { BarChart3, TrendingUp, Users, MapPin, Leaf, Target, GraduationCap, Package } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import Header from "@/components/Header";
 
 const Statistics = () => {
@@ -45,51 +44,45 @@ const Statistics = () => {
 
   const goals = [
     {
-      title: "Recuperação de Massa Total (Meta 4)",
+      title: "Recuperação de Massa Total",
       description: "Meta 2040: Recuperar 48,1% da massa total de RSU",
-      progress: 48.1,
       target: "48,1%",
       icon: Target
     },
     {
-      title: "Inclusão Social de Catadores (Meta 5)",
+      title: "Inclusão Social de Catadores",
       description: "Meta 2040: 95% dos municípios com contratos formalizados",
-      progress: 95,
       target: "95%",
       icon: Users
     },
     {
-      title: "Recuperação de Materiais Recicláveis (Meta 6)",
+      title: "Recuperação de Materiais Recicláveis",
       description: "Meta 2040: Recuperar 20% de recicláveis secos",
-      progress: 20,
       target: "20%",
       icon: Leaf
     },
     {
-      title: "Acesso à Coleta Seletiva (Meta 6.1)",
+      title: "Acesso à Coleta Seletiva",
       description: "Meta 2040: 72,6% da população com acesso",
-      progress: 72.6,
       target: "72,6%",
       icon: MapPin
     },
     {
-      title: "Logística Reversa de Embalagens (Meta 6.2)",
+      title: "Logística Reversa de Embalagens",
       description: "Meta 2040: Recuperar 50% das embalagens",
-      progress: 50,
       target: "50%",
       icon: Package
     },
     {
-      title: "Reciclagem de Fração Orgânica (Meta 7)",
+      title: "Reciclagem de Fração Orgânica",
       description: "Meta 2040: Recuperar 13,5% de orgânicos",
-      progress: 13.5,
       target: "13,5%",
       icon: GraduationCap
     }
   ];
 
   const energyGoal = {
-    title: "Potência Instalada de Biogás (Indicador 8.1)",
+    title: "Potência Instalada de Biogás",
     description: "Meta 2040: 257 MW a partir de biogás de aterro sanitário",
     value: "257 MW",
     icon: TrendingUp
@@ -142,43 +135,6 @@ const Statistics = () => {
           </div>
         </section>
 
-        {/* Monthly Evolution Chart */}
-        <section className="mb-12">
-          <Card className="border-border bg-card">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-6 w-6 text-primary" />
-                Geração Mensal de RSU no Brasil (2023)
-              </CardTitle>
-              <CardDescription>Estimativa de RSU gerado por mês (milhares de toneladas)</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={monthlyData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                  <YAxis stroke="hsl(var(--muted-foreground))" label={{ value: 'Mil toneladas', angle: -90, position: 'insideLeft' }} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--card))', 
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px'
-                    }}
-                    formatter={(value: number) => [`${value.toLocaleString('pt-BR')} mil ton`, 'Geração']}
-                  />
-                  <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="toneladas" 
-                    stroke="hsl(var(--primary))" 
-                    strokeWidth={3}
-                    name="Toneladas"
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        </section>
 
         {/* Material Distribution & Yearly Comparison */}
         <section className="mb-12 grid gap-6 md:grid-cols-2">
@@ -262,12 +218,8 @@ const Statistics = () => {
                     <CardDescription>{goal.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Meta</span>
-                        <span className="font-bold text-foreground text-xl">{goal.target}</span>
-                      </div>
-                      <Progress value={goal.progress} className="h-2" />
+                    <div className="text-center pt-4">
+                      <span className="text-4xl font-bold text-primary">{goal.target}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -346,10 +298,13 @@ const Statistics = () => {
           <Card className="mt-6 bg-muted/50">
             <CardContent className="p-6 text-center">
               <p className="text-sm text-muted-foreground mb-2">
-                <strong className="text-foreground">Fonte dos dados:</strong> Panorama dos Resíduos Sólidos no Brasil 2024
+                <strong className="text-foreground">Fontes dos dados:</strong>
+              </p>
+              <p className="text-sm text-muted-foreground mb-1">
+                • Panorama dos Resíduos Sólidos no Brasil 2024 - ABREMA
               </p>
               <p className="text-sm text-muted-foreground">
-                Publicado pela ABREMA - Associação Brasileira de Resíduos e Meio Ambiente
+                • Plano Nacional de Resíduos Sólidos (Planares)
               </p>
             </CardContent>
           </Card>
