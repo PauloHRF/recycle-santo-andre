@@ -89,7 +89,7 @@ const Statistics = () => {
   };
 
   const environmentalImpact = [
-    { label: "Empregos Diretos", value: "360 mil", icon: "👷" },
+    { label: "Empregos Diretos", value: "386 mil", icon: "👷" },
     { label: "Catadores Autônomos", value: "700 mil+", icon: "♻️" },
     { label: "Municípios Atendidos", value: "5.570", icon: "🏙️" },
     { label: "Adubo Produzido (ton)", value: "85.500", icon: "🌱" }
