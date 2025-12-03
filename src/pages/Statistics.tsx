@@ -5,9 +5,9 @@ import Header from "@/components/Header";
 
 const Statistics = () => {
   const mainMetrics = [
-    { label: "RSU Gerados (2023)", value: "81 milhões ton", icon: TrendingUp, color: "text-primary" },
+    { label: "Lixo Gerado (2023)", value: "81 milhões ton", icon: TrendingUp, color: "text-primary" },
     { label: "Empregos no Setor", value: "386 mil+", icon: Users, color: "text-green-600" },
-    { label: "Taxa de Coleta", value: "93,4%", icon: MapPin, color: "text-blue-600" },
+    { label: "Lixo Coletado", value: "93,4%", icon: MapPin, color: "text-blue-600" },
     { label: "Material Reciclado", value: "6,7 milhões ton", icon: Leaf, color: "text-emerald-600" }
   ];
 
@@ -44,20 +44,20 @@ const Statistics = () => {
 
   const goals = [
     {
-      title: "Recuperação de Massa Total",
-      description: "Meta 2040: Recuperar 48,1% da massa total de RSU",
+      title: "Reaproveitamento Total do Lixo",
+      description: "Meta 2040: Reaproveitar 48,1% de todo o lixo gerado",
       target: "48,1%",
       icon: Target
     },
     {
-      title: "Inclusão Social de Catadores",
+      title: "Apoio e Contratos para Catadores",
       description: "Meta 2040: 95% dos municípios com contratos formalizados",
       target: "95%",
       icon: Users
     },
     {
-      title: "Recuperação de Materiais Recicláveis",
-      description: "Meta 2040: Recuperar 20% de recicláveis secos",
+      title: "Reciclagem de Materiais Secos",
+      description: "Meta 2040: Reciclar 20% dos materiais secos",
       target: "20%",
       icon: Leaf
     },
@@ -68,7 +68,7 @@ const Statistics = () => {
       icon: MapPin
     },
     {
-      title: "Logística Reversa de Embalagens",
+      title: "Retorno de Embalagens",
       description: "Meta 2040: Recuperar 50% das embalagens",
       target: "50%",
       icon: Package
@@ -92,7 +92,7 @@ const Statistics = () => {
     { label: "Empregos Diretos", value: "360 mil", icon: "👷" },
     { label: "Catadores Autônomos", value: "700 mil+", icon: "♻️" },
     { label: "Municípios Atendidos", value: "5.570", icon: "🏙️" },
-    { label: "Composto Produzido (ton)", value: "85.500", icon: "🌱" }
+    { label: "Adubo Produzido (ton)", value: "85.500", icon: "🌱" }
   ];
 
   return (
@@ -140,8 +140,8 @@ const Statistics = () => {
         <section className="mb-12 grid gap-6 md:grid-cols-2">
           <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle>Composição Gravimétrica dos RSU</CardTitle>
-              <CardDescription>Composição dos resíduos sólidos urbanos no Brasil (%)</CardDescription>
+              <CardTitle>O que tem no nosso lixo?</CardTitle>
+              <CardDescription>Composição do lixo nas cidades brasileiras (%)</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
