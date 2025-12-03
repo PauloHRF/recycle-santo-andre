@@ -141,7 +141,7 @@ const Materials = () => {
         "Pilhas e baterias",
         "Eletrodomésticos pequenos"
       ],
-      decomposition: "Até 1.000 anos (pilhas)",
+      decomposition: "De 500 a 1.000 anos",
       process: "Os eletrônicos são desmontados manualmente, os componentes são separados (plástico, metal, vidro), materiais valiosos como ouro e cobre são extraídos, e materiais tóxicos são descartados adequadamente.",
       canRecycle: [
         "Celulares e acessórios",
