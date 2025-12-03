@@ -69,7 +69,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Onde descartar pilhas e baterias?",
-          answer: "Pilhas e baterias contêm metais pesados perigosos. Leve aos ecopontos de Santo André ou a estabelecimentos comerciais que tenham coletores específicos (supermercados, farmácias, lojas de eletrônicos)."
+          answer: "Pilhas e baterias contêm metais pesados perigosos. Leve aos ecopontos de Santo André que aceitam materiais eletrônicos ou a estabelecimentos comerciais que tenham coletores específicos (supermercados, farmácias, lojas de eletrônicos)."
         },
         {
           question: "Como descartar medicamentos vencidos?",
