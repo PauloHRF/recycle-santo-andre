@@ -26,26 +26,23 @@ const HowToRecycle = () => {
     {
       step: "1",
       title: "Lave os Recipientes",
-      description: "Remova restos de alimentos e líquidos",
-      example: "Enxágue garrafas PET, latas e potes de vidro"
+      description: "Remova restos de alimentos e líquidos"
     },
     {
       step: "2",
       title: "Seque Completamente",
       description: "Deixe secar ao ar ou use um pano limpo",
-      example: "Materiais secos evitam mau cheiro e fungos"
+      observation: "Materiais secos evitam mau cheiro e fungos"
     },
     {
       step: "3",
       title: "Remova Tampas e Rótulos",
-      description: "Separe componentes de materiais diferentes",
-      example: "Tampa de plástico em garrafa de vidro"
+      description: "Separe componentes de materiais diferentes"
     },
     {
       step: "4",
       title: "Amasse Quando Possível",
-      description: "Economize espaço de armazenamento",
-      example: "Amasse latas e garrafas PET"
+      description: "Economize espaço de armazenamento"
     }
   ];
 
@@ -217,11 +214,13 @@ const HowToRecycle = () => {
                         <p className="mb-2 text-sm text-muted-foreground">
                           {step.description}
                         </p>
-                        <div className="rounded-lg bg-secondary/50 p-3">
-                          <p className="text-sm text-muted-foreground">
-                            <span className="font-medium text-foreground">Exemplo:</span> {step.example}
-                          </p>
-                        </div>
+                        {step.observation && (
+                          <div className="rounded-lg bg-secondary/50 p-3">
+                            <p className="text-sm text-muted-foreground">
+                              <span className="font-medium text-foreground">Observação:</span> {step.observation}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
